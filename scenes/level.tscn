@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b67qspn68qjff"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 378.0
+offset_top = 174.0
+offset_right = 554.0
+offset_bottom = 270.0
+text = "YAY This is a lvl"
