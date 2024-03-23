@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ejx3qa8e2rwn"]
+
+[ext_resource type="Texture2D" uid="uid://d1g6jud12ea7s" path="res://graphics/UI/hudHeart_full.png" id="1_2g5rr"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_32dck"]
+[ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="2_t62kb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0kgrc"]
+font = ExtResource("2_t62kb")
+font_size = 70
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_32dck")
+
+[node name="HealthUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HealthUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.97
+anchor_top = 0.04
+anchor_right = 0.97
+anchor_bottom = 0.04
+grow_horizontal = 0
+theme_override_constants/separation = 25
+
+[node name="TextureRect" type="TextureRect" parent="HealthUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2g5rr")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="HealthText" type="Label" parent="HealthUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_0kgrc")

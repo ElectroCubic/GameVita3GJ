@@ -43,7 +43,7 @@ func _physics_process(delta):
 		coyoteTimeCounter -= delta
 
 	# Player Controls
-	if (anim.animation != "Death"):
+	if (anim.animation != "Death") and not Globals.is_game_over:
 		var direction = 0
 		var left = Input.is_action_pressed("Left")
 		var right = Input.is_action_pressed("Right")
@@ -89,8 +89,8 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * pushForce)
-			
-			
-			
-			
-			
+
+func death():
+	Globals.is_game_over = true
+	anim.play("Death")
+	print("You DIED")

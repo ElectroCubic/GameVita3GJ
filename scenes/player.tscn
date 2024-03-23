@@ -148,7 +148,7 @@ size = Vector2(76, 76)
 collision_mask = 30
 script = ExtResource("1_inyjd")
 SPEED = 500
-JUMP_VELOCITY = -700
+JUMP_VELOCITY = -720
 jumpBufferTime = 0.2
 coyoteTime = 0.2
 pushForce = 80
@@ -167,5 +167,6 @@ shape = SubResource("RectangleShape2D_ll2ch")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.607843, 1, 1, 1)
+energy = 1.4
 shadow_enabled = true
 texture = ExtResource("16_sqotg")

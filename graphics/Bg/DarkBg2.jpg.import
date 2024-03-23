@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqxro1hosncqx"
-path="res://.godot/imported/spikes.png-64ef5e7a38eac969ece9ff5c0428d3e7.ctex"
+uid="uid://c6n6jprc3m8iy"
+path="res://.godot/imported/DarkBg2.jpg-7b288bad7857766f7a012d1b63008e2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Objects/spikes.png"
-dest_files=["res://.godot/imported/spikes.png-64ef5e7a38eac969ece9ff5c0428d3e7.ctex"]
+source_file="res://graphics/Bg/DarkBg2.jpg"
+dest_files=["res://.godot/imported/DarkBg2.jpg-7b288bad7857766f7a012d1b63008e2f.ctex"]
 
 [params]
 
