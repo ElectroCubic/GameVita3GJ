@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8xwkkd2k7ae3"]
+
+[ext_resource type="Texture2D" uid="uid://cgphgpotgbrmv" path="res://graphics/Objects/boxCrate_double.png" id="1_55mip"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2s1lj"]
+polygon = PackedVector2Array(-38, -38, 38, -38, 38, 38, -38, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fekkv"]
+size = Vector2(76, 76)
+
+[node name="Box2" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 19
+mass = 2.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_2s1lj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_55mip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fekkv")
