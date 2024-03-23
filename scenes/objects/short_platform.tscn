@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dai547al1whlx"]
+[gd_scene load_steps=4 format=3 uid="uid://dai547al1whlx"]
 
 [ext_resource type="Texture2D" uid="uid://dnlcjhpski3yo" path="res://graphics/Objects/bridgeB.png" id="1_bg0nr"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_blvdh"]
+polygon = PackedVector2Array(-223, -5, -212, -8, -191, -11, 179, -11, 207, -9, 223, -4, 223, 4, 207, 9, 179, 11, -191, 11, -212, 8, -223, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2akk"]
 size = Vector2(444, 22)
@@ -9,10 +12,13 @@ size = Vector2(444, 22)
 collision_layer = 16
 collision_mask = 19
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_blvdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2akk")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 28)
 scale = Vector2(3.48437, 0.613281)
 texture = ExtResource("1_bg0nr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g2akk")

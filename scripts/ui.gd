@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal restartPressed
+
 @onready var healthText: Label = $HealthUI/HBoxContainer/HealthText
 
 func _ready():
@@ -9,3 +11,8 @@ func _ready():
 func update_health_text():
 	healthText.text = "X " + str(Globals.health)
 
+func _on_restart_btn_pressed():
+	restartPressed.emit()
+
+func _on_quit_btn_pressed():
+	get_tree().quit()

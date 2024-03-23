@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal collided(collision)
+signal playerDied
+
 @export var SPEED: int
 @export var JUMP_VELOCITY: int
 @export var jumpBufferTime: float
@@ -43,7 +46,7 @@ func _physics_process(delta):
 		coyoteTimeCounter -= delta
 
 	# Player Controls
-	if (anim.animation != "Death") and not Globals.is_game_over:
+	if (anim.animation != "Death"):
 		var direction = 0
 		var left = Input.is_action_pressed("Left")
 		var right = Input.is_action_pressed("Right")
@@ -87,10 +90,15 @@ func _physics_process(delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
+		collided.emit(collision)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * pushForce)
 
 func death():
-	Globals.is_game_over = true
 	anim.play("Death")
-	print("You DIED")
+	$DeathParticles.emitting = true
+	if not Globals.is_game_over:
+		Globals.health -= 1
+	Globals.is_game_over = true
+	await get_tree().create_timer(0.5).timeout
+	playerDied.emit()

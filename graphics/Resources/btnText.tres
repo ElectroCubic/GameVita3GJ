@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://8y2a3ofxlyr5"]
+
+[ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="1_o0bkb"]
+
+[resource]
+font = ExtResource("1_o0bkb")
+font_size = 23

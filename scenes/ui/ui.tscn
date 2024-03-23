@@ -1,12 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://ejx3qa8e2rwn"]
+[gd_scene load_steps=14 format=3 uid="uid://ejx3qa8e2rwn"]
 
 [ext_resource type="Texture2D" uid="uid://d1g6jud12ea7s" path="res://graphics/UI/hudHeart_full.png" id="1_2g5rr"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_32dck"]
 [ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="2_t62kb"]
+[ext_resource type="Texture2D" uid="uid://b5xpa3npcbhvi" path="res://graphics/UI/blue_button02.png" id="4_ohy25"]
+[ext_resource type="Texture2D" uid="uid://cpn0n60yj0w0" path="res://graphics/UI/blue_button01.png" id="5_2q6k2"]
+[ext_resource type="Texture2D" uid="uid://cjqt4bnwv25p8" path="res://graphics/UI/blue_button00.png" id="6_ipkc5"]
+[ext_resource type="LabelSettings" uid="uid://8y2a3ofxlyr5" path="res://graphics/Resources/btnText.tres" id="7_ghfub"]
+[ext_resource type="Texture2D" uid="uid://b6sg6ty4q5vr8" path="res://graphics/UI/red_button13.png" id="8_sbbog"]
+[ext_resource type="Texture2D" uid="uid://sbmhb8xtfcio" path="res://graphics/UI/red_button12.png" id="9_66g2f"]
+[ext_resource type="Texture2D" uid="uid://ky7rbxbvlk70" path="res://graphics/UI/red_button11.png" id="10_6vuxy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0kgrc"]
 font = ExtResource("2_t62kb")
 font_size = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdrc0"]
+bg_color = Color(0, 0, 0, 0.666667)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_fndlp"]
+font = ExtResource("2_t62kb")
+font_size = 48
+font_color = Color(0.788235, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_32dck")
@@ -39,3 +64,121 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_0kgrc")
+
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -166.0
+offset_right = 250.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdrc0")
+
+[node name="RestartBtn" type="TextureButton" parent="GameOverScreen/Bg"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 221.0
+offset_right = 202.0
+offset_bottom = 270.0
+texture_normal = ExtResource("4_ohy25")
+texture_pressed = ExtResource("5_2q6k2")
+texture_hover = ExtResource("6_ipkc5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RestartText" type="Label" parent="GameOverScreen/Bg/RestartBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -11.5
+offset_right = 40.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "STRUGGLE"
+label_settings = ExtResource("7_ghfub")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitBtn" type="TextureButton" parent="GameOverScreen/Bg"]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 221.0
+offset_right = 407.0
+offset_bottom = 270.0
+texture_normal = ExtResource("8_sbbog")
+texture_pressed = ExtResource("9_66g2f")
+texture_hover = ExtResource("10_6vuxy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="QuitText" type="Label" parent="GameOverScreen/Bg/QuitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+label_settings = ExtResource("7_ghfub")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverText" type="Label" parent="GameOverScreen/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -133.5
+offset_right = 253.0
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE DARKNESS
+CONSUMED YOU"
+label_settings = SubResource("LabelSettings_fndlp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Or" type="Label" parent="GameOverScreen/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 65.5
+offset_right = 16.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "OR"
+label_settings = ExtResource("7_ghfub")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="GameOverScreen/Bg/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="GameOverScreen/Bg/QuitBtn" to="." method="_on_quit_btn_pressed"]
