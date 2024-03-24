@@ -1,7 +1,22 @@
-[gd_resource type="TileSet" load_steps=31 format=3 uid="uid://cphdbp2xmjeqq"]
+[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://cphdbp2xmjeqq"]
 
 [ext_resource type="Texture2D" uid="uid://cqbwk1x0lo5fu" path="res://graphics/Blocks/stone_sheet.png" id="1_vvfsj"]
 [ext_resource type="Texture2D" uid="uid://0k7sqo8wlpe" path="res://graphics/Objects/spikes_1.png" id="2_re22p"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_86jo8"]
+tile_data = PackedInt32Array(0, 131072, 5, 65536, 65536, 3, 1, 131072, 4, 65537, 65536, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_q3d2e"]
+tile_data = PackedInt32Array(0, 196608, 5, 1, 262144, 3, 2, 196608, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0ivrw"]
+tile_data = PackedInt32Array(0, 262144, 4, 1, 262144, 3, 2, 262144, 3, 3, 262144, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_c5e2i"]
+tile_data = PackedInt32Array(65536, 1, 1610612736, 131072, 1, 1610612736, 1, 1, 0, 65537, 131072, 5, 131073, 65536, 3, 196609, 1, 805306368, 2, 1, 0, 65538, 131072, 4, 131074, 65536, 2, 196610, 1, 805306368, 65539, 1, 1342177280, 131075, 1, 1342177280)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1pnkj"]
+tile_data = PackedInt32Array(0, 131072, 4, 65536, 131072, 2, 1, 1, 0, 65537, 262144, 3, 2, 1, 0, 65538, 262144, 3, 3, 1, 0, 65539, 262144, 3, 4, 131072, 5, 65540, 327680, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_scov5"]
 polygon = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
@@ -60,6 +75,9 @@ polygon = PackedVector2Array(-35, -35, 35, -35, 35, -11, -35, 35)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_li1ye"]
 polygon = PackedVector2Array(35, -35, -35, -35, -35, -11, 35, 35)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iuf8u"]
+polygon = PackedVector2Array(-35, -35, 35, 35, -35, 35)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_imsqf"]
 polygon = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
 
@@ -110,8 +128,10 @@ use_texture_padding = false
 3:0/0/custom_data_0 = 1
 4:0/0 = 0
 4:0/0/modulate = Color(0.501961, 0.501961, 0.501961, 1)
+4:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_iuf8u")
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, 35, -35, 35)
 4:0/0/custom_data_0 = 1
 5:0/0 = 0
 5:0/0/modulate = Color(0.501961, 0.501961, 0.501961, 1)
@@ -335,3 +355,8 @@ custom_data_layer_0/name = "Damage"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_26sbs")
 sources/1 = SubResource("TileSetAtlasSource_x1yp4")
+pattern_0 = SubResource("TileMapPattern_86jo8")
+pattern_1 = SubResource("TileMapPattern_q3d2e")
+pattern_2 = SubResource("TileMapPattern_0ivrw")
+pattern_3 = SubResource("TileMapPattern_c5e2i")
+pattern_4 = SubResource("TileMapPattern_1pnkj")

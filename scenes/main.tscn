@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbbtbfrrvjqj6"]
+[gd_scene load_steps=18 format=3 uid="uid://dbbtbfrrvjqj6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1do45"]
 [ext_resource type="Texture2D" uid="uid://x8prwgk7rcq5" path="res://graphics/Bg/DarkBg.jpg" id="2_n6imq"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dnp7seyimbgb" path="res://graphics/UI/grey_button01.png" id="7_xebm7"]
 [ext_resource type="Texture2D" uid="uid://y2fchhqroiye" path="res://graphics/UI/grey_button00.png" id="8_cpxuc"]
 [ext_resource type="Texture2D" uid="uid://048tn3u8qpg2" path="res://graphics/UI/grey_button15.png" id="9_dqlo6"]
+[ext_resource type="AudioStream" uid="uid://xh2jy7w0ok0j" path="res://audio/BGM/ScaryMenuMusic.mp3" id="11_87hrt"]
+[ext_resource type="AudioStream" uid="uid://bygylr25prlcg" path="res://audio/SFX/rollover1.ogg" id="12_oundt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q4btd"]
 font = ExtResource("6_7hrec")
@@ -121,6 +123,7 @@ metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG"]
 position = Vector2(1145, -271)
+rotation = 3.1416
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("5_br8tc")
 animation = &"Idle"
@@ -185,6 +188,17 @@ libraries = {
 "": SubResource("AnimationLibrary_bivaq")
 }
 autoplay = "Distortion"
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_87hrt")
+volume_db = 2.0
+autoplay = true
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_oundt")
+volume_db = 10.0
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="QuitBtn" to="." method="_on_quit_btn_pressed"]

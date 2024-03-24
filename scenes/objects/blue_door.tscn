@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv7xkckdjm1wa"]
+
+[ext_resource type="Script" path="res://scripts/blue_door.gd" id="1_8rc7y"]
+[ext_resource type="Texture2D" uid="uid://bi4hpg5prdxu6" path="res://graphics/Objects/BlueTop.png" id="1_id558"]
+[ext_resource type="Texture2D" uid="uid://dpmlfibrtu1bv" path="res://graphics/Objects/BlueMid.png" id="2_8mih0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1762"]
+size = Vector2(72, 146)
+
+[node name="BlueDoor" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_8rc7y")
+
+[node name="Top" type="Sprite2D" parent="."]
+position = Vector2(0, -78)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_id558")
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(0, 22)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_8mih0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v1762")
+
+[node name="WaitTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

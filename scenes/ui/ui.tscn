@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ejx3qa8e2rwn"]
+[gd_scene load_steps=15 format=3 uid="uid://ejx3qa8e2rwn"]
 
 [ext_resource type="Texture2D" uid="uid://d1g6jud12ea7s" path="res://graphics/UI/hudHeart_full.png" id="1_2g5rr"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_32dck"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sg6ty4q5vr8" path="res://graphics/UI/red_button13.png" id="8_sbbog"]
 [ext_resource type="Texture2D" uid="uid://sbmhb8xtfcio" path="res://graphics/UI/red_button12.png" id="9_66g2f"]
 [ext_resource type="Texture2D" uid="uid://ky7rbxbvlk70" path="res://graphics/UI/red_button11.png" id="10_6vuxy"]
+[ext_resource type="AudioStream" uid="uid://bygylr25prlcg" path="res://audio/SFX/rollover1.ogg" id="11_8b8g8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0kgrc"]
 font = ExtResource("2_t62kb")
@@ -181,6 +182,10 @@ text = "OR"
 label_settings = ExtResource("7_ghfub")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8b8g8")
+volume_db = 10.0
 
 [connection signal="pressed" from="GameOverScreen/Bg/RestartBtn" to="." method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="GameOverScreen/Bg/QuitBtn" to="." method="_on_quit_btn_pressed"]

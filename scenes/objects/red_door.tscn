@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckvx0sllba6aw"]
+
+[ext_resource type="Texture2D" uid="uid://c3js3wiu0tkcq" path="res://graphics/Objects/RedTop.png" id="1_1bbxd"]
+[ext_resource type="Script" path="res://scripts/red_door.gd" id="1_k66cu"]
+[ext_resource type="Texture2D" uid="uid://cuawuvu64m6r0" path="res://graphics/Objects/RedMid.png" id="2_1g6sm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1762"]
+size = Vector2(72, 146)
+
+[node name="RedDoor" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_k66cu")
+
+[node name="Top" type="Sprite2D" parent="."]
+position = Vector2(0, -78)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_1bbxd")
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(0, 22)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_1g6sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v1762")
+
+[node name="WaitTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

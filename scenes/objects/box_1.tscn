@@ -11,6 +11,7 @@ size = Vector2(76, 76)
 [node name="Box1" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 19
+mass = 2.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_br38c")

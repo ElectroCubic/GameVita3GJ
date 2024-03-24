@@ -1,0 +1,167 @@
+[gd_scene load_steps=17 format=3 uid="uid://j563pulpupk2"]
+
+[ext_resource type="Script" path="res://scripts/ending.gd" id="1_cc310"]
+[ext_resource type="AudioStream" uid="uid://bygylr25prlcg" path="res://audio/SFX/rollover1.ogg" id="1_qnmqi"]
+[ext_resource type="Texture2D" uid="uid://x8prwgk7rcq5" path="res://graphics/Bg/DarkBg.jpg" id="2_lb4wy"]
+[ext_resource type="Texture2D" uid="uid://dnp7seyimbgb" path="res://graphics/UI/grey_button01.png" id="3_4kepy"]
+[ext_resource type="Material" uid="uid://gscdrl6pjp14" path="res://graphics/Resources/DistortionEffect.tres" id="3_u0xa2"]
+[ext_resource type="Texture2D" uid="uid://y2fchhqroiye" path="res://graphics/UI/grey_button00.png" id="4_v2tyy"]
+[ext_resource type="Texture2D" uid="uid://cgn0ihiatsswb" path="res://graphics/Objects/circle.png" id="4_wmmh8"]
+[ext_resource type="Texture2D" uid="uid://048tn3u8qpg2" path="res://graphics/UI/grey_button15.png" id="5_62vqt"]
+[ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="6_y77fm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fug6n"]
+font = ExtResource("6_y77fm")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4j6b"]
+font = ExtResource("6_y77fm")
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_0iqh2"]
+font = ExtResource("6_y77fm")
+font_size = 42
+font_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueuxb"]
+font = ExtResource("6_y77fm")
+font_size = 60
+font_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="Animation" id="Animation_o0oku"]
+resource_name = "Distortion"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg/Distortion:material:shader_parameter/distortionTexture:noise:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1000, 0, 0), Vector3(1000, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c12lx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg/Distortion:material:shader_parameter/distortionTexture:noise:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1000, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ky21k"]
+_data = {
+"Distortion": SubResource("Animation_o0oku"),
+"RESET": SubResource("Animation_c12lx")
+}
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_cc310")
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="DarkBg" type="Sprite2D" parent="Bg"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(1056.91, 739.5)
+scale = Vector2(3.37671, 3.37671)
+texture = ExtResource("2_lb4wy")
+metadata/_edit_lock_ = true
+
+[node name="EndingText" type="Label" parent="Bg"]
+offset_left = 245.0
+offset_top = 291.0
+offset_right = 1700.0
+offset_bottom = 441.0
+text = "IT WAS JUST A NIGHTMARE!"
+label_settings = SubResource("LabelSettings_fug6n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thanks" type="Label" parent="Bg"]
+offset_left = 226.0
+offset_top = 471.0
+offset_right = 1681.0
+offset_bottom = 621.0
+text = "Thanks For Playing!"
+label_settings = SubResource("LabelSettings_l4j6b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Distortion" type="Sprite2D" parent="Bg"]
+material = ExtResource("3_u0xa2")
+position = Vector2(1104.46, 661.434)
+scale = Vector2(3.17634, 2.89641)
+texture = ExtResource("4_wmmh8")
+metadata/_edit_lock_ = true
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("1_qnmqi")
+volume_db = 10.0
+
+[node name="RestartBtn" type="TextureButton" parent="."]
+offset_left = 587.0
+offset_top = 740.0
+offset_right = 888.0
+offset_bottom = 870.0
+texture_normal = ExtResource("3_4kepy")
+texture_pressed = ExtResource("4_v2tyy")
+texture_hover = ExtResource("5_62vqt")
+stretch_mode = 0
+
+[node name="RestartText" type="Label" parent="RestartBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SLEEP AGAIN?"
+label_settings = SubResource("LabelSettings_0iqh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="QuitBtn" type="TextureButton" parent="."]
+offset_left = 981.0
+offset_top = 741.0
+offset_right = 1281.0
+offset_bottom = 868.0
+texture_normal = ExtResource("3_4kepy")
+texture_pressed = ExtResource("4_v2tyy")
+texture_hover = ExtResource("5_62vqt")
+stretch_mode = 0
+
+[node name="QuitText" type="Label" parent="QuitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WAKE UP"
+label_settings = SubResource("LabelSettings_ueuxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ky21k")
+}
+autoplay = "Distortion"
+
+[connection signal="pressed" from="RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="QuitBtn" to="." method="_on_quit_btn_pressed"]

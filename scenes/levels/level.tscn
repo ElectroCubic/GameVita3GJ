@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://b67qspn68qjff"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_mh02e"]
+[ext_resource type="Texture2D" uid="uid://c6n6jprc3m8iy" path="res://graphics/Bg/DarkBg2.jpg" id="2_umswx"]
+[ext_resource type="PackedScene" uid="uid://c5kmjvk8ngo1m" path="res://scenes/player.tscn" id="2_vbdqk"]
+[ext_resource type="TileSet" uid="uid://cphdbp2xmjeqq" path="res://graphics/Resources/levelTileset.tres" id="4_7482a"]
+[ext_resource type="AudioStream" uid="uid://xh2jy7w0ok0j" path="res://audio/BGM/ScaryMenuMusic.mp3" id="6_4t0d5"]
+[ext_resource type="PackedScene" uid="uid://ejx3qa8e2rwn" path="res://scenes/ui/ui.tscn" id="6_ktvxl"]
+[ext_resource type="AudioStream" uid="uid://yeh2h1wt0lro" path="res://audio/SFX/GamOverSoundFX.wav" id="7_p36t7"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mh02e")
+
+[node name="Background" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="DarkRoomBg" type="Sprite2D" parent="Background"]
+position = Vector2(1181.5, -668)
+scale = Vector2(3.05842, 2.66522)
+texture = ExtResource("2_umswx")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("4_7482a")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 131072, 2, -1245184, 65536, 0, -1245151, 65536, 1, -65503, 327680, 0, -1179648, 131072, 0, -1114112, 131072, 0, -1048576, 131072, 0, -983040, 131072, 0, -917504, 131072, 0, -851968, 131072, 0, -786432, 131072, 0, -720896, 131072, 0, -655360, 131072, 0, -589824, 131072, 0, -524288, 131072, 0, -458752, 131072, 0, -393216, 131072, 0, -327680, 131072, 0, -262144, 131072, 0, -196608, 131072, 0, -131072, 131072, 0, -1245183, 0, 6, -1245182, 0, 6, -1245181, 0, 6, -1245180, 0, 6, -1245179, 0, 6, -1245178, 0, 6, -1245177, 0, 6, -1245176, 0, 6, -1245175, 0, 6, -1245174, 0, 6, -1245173, 0, 6, -1245172, 0, 6, -1245171, 0, 6, -1245170, 0, 6, -1245169, 0, 6, -1245168, 0, 6, -1245167, 0, 6, -1245166, 0, 6, -1245165, 0, 6, -1245164, 0, 6, -1245163, 0, 6, -1245162, 0, 6, -1245161, 0, 6, -1245160, 0, 6, -1245159, 0, 6, -1245158, 0, 6, -1245157, 0, 6, -1245156, 0, 6, -1245155, 0, 6, -1245154, 0, 6, -1245153, 0, 6, -1245152, 0, 6, -1179615, 131072, 1, -1114079, 131072, 1, -1048543, 131072, 1, -983007, 131072, 1, -917471, 131072, 1, -851935, 131072, 1, -786399, 131072, 1, -720863, 131072, 1, -655327, 131072, 1, -589791, 131072, 1, -524255, 131072, 1, -458719, 131072, 1, -393183, 131072, 1, -327647, 131072, 1, -262111, 131072, 1, -196575, 131072, 1, -131039, 131072, 1, -65535, 262144, 3, -65534, 262144, 3, -65533, 262144, 3, -65532, 262144, 3, -65531, 262144, 3, -65530, 262144, 3, -65529, 262144, 3, -65528, 262144, 3, -65527, 262144, 3, -65526, 262144, 3, -65525, 262144, 3, -65524, 262144, 3, -65523, 262144, 3, -65522, 262144, 3, -65521, 262144, 3, -65520, 262144, 3, -65519, 262144, 3, -65518, 262144, 3, -65517, 262144, 3, -65516, 262144, 3, -65515, 262144, 3, -65514, 262144, 3, -65513, 262144, 3, -65512, 262144, 3, -65511, 262144, 3, -65510, 262144, 3, -65509, 262144, 3, -65508, 262144, 3, -65507, 262144, 3, -65506, 262144, 3, -65505, 262144, 3, -65504, 262144, 3, -1310720, 0, 5, -1310719, 0, 5, -1310718, 0, 5, -1310717, 0, 5, -1310716, 0, 5, -1310714, 0, 5, -1310713, 0, 5, -1310712, 0, 5, -1310711, 0, 5, -1310710, 0, 5, -1310709, 0, 5, -1310708, 0, 5, -1310707, 0, 5, -1310706, 0, 5, -1310705, 0, 5, -1310704, 0, 5, -1310703, 0, 5, -1310702, 0, 5, -1310701, 0, 5, -1310700, 0, 5, -1310699, 0, 5, -1310698, 0, 5, -1310697, 0, 5, -1310696, 0, 5, -1310695, 0, 5, -1310694, 0, 5, -1310693, 0, 5, -1310692, 0, 5, -1310691, 0, 5, -1310690, 0, 5, -1310689, 0, 5, -1310688, 0, 5, -1310687, 0, 5, -1310715, 0, 5, -1310686, 0, 5, -1245150, 0, 5, -1179614, 0, 5, -1114078, 0, 5, -1048542, 0, 5, -983006, 0, 5, -917470, 0, 5, -851934, 0, 5, -786398, 0, 5, -720862, 0, 5, -655326, 0, 5, -589790, 0, 5, -524254, 0, 5, -458718, 0, 5, -393182, 0, 5, -327646, 0, 5, -262110, 0, 5, -196574, 0, 5, -131038, 0, 5, -65502, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 10, 0, 5, 11, 0, 5, 12, 0, 5, 13, 0, 5, 14, 0, 5, 15, 0, 5, 16, 0, 5, 17, 0, 5, 18, 0, 5, 19, 0, 5, 20, 0, 5, 21, 0, 5, 22, 0, 5, 23, 0, 5, 24, 0, 5, 25, 0, 5, 26, 0, 5, 27, 0, 5, 28, 0, 5, 29, 0, 5, 30, 0, 5, 31, 0, 5, 32, 0, 5, 33, 0, 5, 34, 0, 5, -1245185, 0, 5, -1179649, 0, 5, -1114113, 0, 5, -1048577, 0, 5, -983041, 0, 5, -917505, 0, 5, -851969, 0, 5, -786433, 0, 5, -720897, 0, 5, -655361, 0, 5, -589825, 0, 5, -524289, 0, 5, -458753, 0, 5, -393217, 0, 5, -327681, 0, 5, -262145, 0, 5, -196609, 0, 5, -131073, 0, 5, -65537, 0, 5, -1, 0, 5, 65535, 0, 5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1200, -675)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_vbdqk")]
+position = Vector2(392, -108)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+energy = 0.3
+blend_mode = 1
+
+[node name="UI" parent="." instance=ExtResource("6_ktvxl")]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="LevelBGM" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_4t0d5")
+pitch_scale = 0.63
+autoplay = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_p36t7")
+
+[connection signal="collided" from="Player" to="." method="_on_player_collided"]
+[connection signal="playerDied" from="Player" to="." method="_on_player_player_died"]
+[connection signal="restartPressed" from="UI" to="." method="_on_ui_restart_pressed"]

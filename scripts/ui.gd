@@ -12,7 +12,11 @@ func update_health_text():
 	healthText.text = "X " + str(Globals.health)
 
 func _on_restart_btn_pressed():
+	$ClickSound.play()
+	await $ClickSound.finished
 	restartPressed.emit()
 
 func _on_quit_btn_pressed():
+	$ClickSound.play()
+	await $ClickSound.finished
 	get_tree().quit()

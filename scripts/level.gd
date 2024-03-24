@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Level
+
 @onready var player = $Player
 
 func _on_player_collided(collision):
@@ -24,16 +26,14 @@ func _on_player_collided(collision):
 
 func _on_ui_restart_pressed():
 	Globals.is_game_over = false
+	$UI/GameOverScreen.visible = false
 	Globals.health = 5
-	get_tree().reload_current_scene()
-	print("Restarted")
+	TransitionLayer.change_scene(Globals.selectRandomLevelFromSet1())
 	
 func _on_player_player_died():
-	checkHealth()
-	
-func checkHealth():
 	if Globals.health == 0:
 		Globals.is_game_over = true
+		$Audio/GameOverSound.play()
 		$UI/GameOverScreen.visible = true
 	else:
 		restartLevel()
@@ -41,3 +41,4 @@ func checkHealth():
 func restartLevel():
 	Globals.is_game_over = false
 	get_tree().reload_current_scene()
+

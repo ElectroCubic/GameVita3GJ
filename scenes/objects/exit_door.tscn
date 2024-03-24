@@ -8,6 +8,7 @@
 size = Vector2(74, 144)
 
 [node name="ExitDoor" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_hsqb0")
 
 [node name="TopHalf" type="Sprite2D" parent="."]

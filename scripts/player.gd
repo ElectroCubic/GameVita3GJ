@@ -14,18 +14,7 @@ var lowJumpMultiplier: float = 0.9
 
 @onready var anim = $AnimatedSprite2D
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-#var scale_decrease: float = 0
-#var spriteHeight: int = 810
-
-#func _ready():
-	#scale_decrease += 0.1
-	#$CollisionShape2D.scale -= Vector2(1 - scale_decrease, 1 - scale_decrease)
-	#var spriteOffset = spriteHeight - (spriteHeight * $CollisionShape2D.scale.y)
-	#$AnimatedSprite2D.position.y = (3 + spriteOffset)
-
 
 func charMoveLeft():
 	anim.flip_h = true
@@ -51,6 +40,15 @@ func _physics_process(delta):
 		var left = Input.is_action_pressed("Left")
 		var right = Input.is_action_pressed("Right")
 		
+		if velocity and is_on_floor():
+			if $WalkTimer.time_left <= 0:
+				$WalkSound.pitch_scale = randf_range(0.8,1.2)
+				$WalkSound.play()
+				$WalkTimer.start(0.2)
+			$WalkParticles.emitting = true
+		else:
+			$WalkParticles.emitting = false
+		
 		if left and not right:
 			direction = -1
 			charMoveLeft()
@@ -74,6 +72,7 @@ func _physics_process(delta):
 			jumpBufferCounter -= delta
 		
 		if Input.is_action_pressed("Jump") and coyoteTimeCounter > 0 and jumpBufferCounter > 0:
+			$JumpSound.play()
 			coyoteTimeCounter = 0
 			jumpBufferCounter = 0
 			velocity.y += JUMP_VELOCITY
@@ -95,10 +94,15 @@ func _physics_process(delta):
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * pushForce)
 
 func death():
+	if not $DeathSound.playing and not Globals.is_game_over:
+		$DeathSound.play()
+	var tween = create_tween()
+	tween.tween_property(self,"modulate:a",0,1)
 	anim.play("Death")
 	$DeathParticles.emitting = true
 	if not Globals.is_game_over:
 		Globals.health -= 1
 	Globals.is_game_over = true
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	playerDied.emit()
+	queue_free()
