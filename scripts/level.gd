@@ -2,17 +2,6 @@ extends Node2D
 
 @onready var player = $Player
 
-func restartLevel():
-	checkHealth()
-	Globals.is_game_over = false
-	get_tree().reload_current_scene()
-
-func checkHealth():
-	if Globals.health <= 0:
-		Globals.is_game_over = true
-		print("Actual game over")
-		get_tree().quit()
-
 func _on_player_collided(collision):
 	if collision.get_collider() is TileMap:
 		var tile_pos = collision.get_collider().local_to_map(player.position)
@@ -35,10 +24,20 @@ func _on_player_collided(collision):
 
 func _on_ui_restart_pressed():
 	Globals.is_game_over = false
+	Globals.health = 5
+	get_tree().reload_current_scene()
 	print("Restarted")
 	
-func _on_exit_door_player_touched():
-	print("level complete!")
-
 func _on_player_player_died():
-	restartLevel()
+	checkHealth()
+	
+func checkHealth():
+	if Globals.health == 0:
+		Globals.is_game_over = true
+		$UI/GameOverScreen.visible = true
+	else:
+		restartLevel()
+		
+func restartLevel():
+	Globals.is_game_over = false
+	get_tree().reload_current_scene()

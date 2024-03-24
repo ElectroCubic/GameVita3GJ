@@ -30,7 +30,7 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_fndlp"]
 font = ExtResource("2_t62kb")
-font_size = 48
+font_size = 65
 font_color = Color(0.788235, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
@@ -81,20 +81,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -166.0
-offset_right = 250.0
-offset_bottom = 166.0
+offset_left = -390.0
+offset_top = -247.0
+offset_right = 390.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdrc0")
 
 [node name="RestartBtn" type="TextureButton" parent="GameOverScreen/Bg"]
 layout_mode = 0
-offset_left = 81.0
-offset_top = 221.0
-offset_right = 202.0
-offset_bottom = 270.0
+offset_left = 107.0
+offset_top = 301.0
+offset_right = 317.0
+offset_bottom = 386.0
 texture_normal = ExtResource("4_ohy25")
 texture_pressed = ExtResource("5_2q6k2")
 texture_hover = ExtResource("6_ipkc5")
@@ -118,13 +118,14 @@ text = "STRUGGLE"
 label_settings = ExtResource("7_ghfub")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="QuitBtn" type="TextureButton" parent="GameOverScreen/Bg"]
 layout_mode = 0
-offset_left = 285.0
-offset_top = 221.0
-offset_right = 407.0
-offset_bottom = 270.0
+offset_left = 454.0
+offset_top = 301.0
+offset_right = 663.0
+offset_bottom = 385.0
 texture_normal = ExtResource("8_sbbog")
 texture_pressed = ExtResource("9_66g2f")
 texture_hover = ExtResource("10_6vuxy")
@@ -142,6 +143,7 @@ text = "QUIT"
 label_settings = ExtResource("7_ghfub")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="GameOverText" type="Label" parent="GameOverScreen/Bg"]
 layout_mode = 1
@@ -151,9 +153,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -253.0
-offset_top = -133.5
+offset_top = -195.5
 offset_right = 253.0
-offset_bottom = -10.5
+offset_bottom = -28.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "THE DARKNESS
@@ -169,10 +171,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = 65.5
-offset_right = 16.0
-offset_bottom = 94.5
+offset_left = -28.0
+offset_top = 71.0
+offset_right = 20.0
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "OR"

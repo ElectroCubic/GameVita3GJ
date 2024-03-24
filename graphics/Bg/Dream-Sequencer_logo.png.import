@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://387rpbrlmduf"
-path="res://.godot/imported/blue_button04.png-207f6d35bb777887c1f51e48696b2b80.ctex"
+uid="uid://ci4d741ynrtsp"
+path="res://.godot/imported/Dream-Sequencer_logo.png-38a65b23b46036faa71113d09f4ca8ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/UI/blue_button04.png"
-dest_files=["res://.godot/imported/blue_button04.png-207f6d35bb777887c1f51e48696b2b80.ctex"]
+source_file="res://graphics/Bg/Dream-Sequencer_logo.png"
+dest_files=["res://.godot/imported/Dream-Sequencer_logo.png-38a65b23b46036faa71113d09f4ca8ab.ctex"]
 
 [params]
 

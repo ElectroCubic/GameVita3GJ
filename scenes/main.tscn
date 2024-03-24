@@ -1,23 +1,190 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbbtbfrrvjqj6"]
+[gd_scene load_steps=16 format=3 uid="uid://dbbtbfrrvjqj6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1do45"]
+[ext_resource type="Texture2D" uid="uid://x8prwgk7rcq5" path="res://graphics/Bg/DarkBg.jpg" id="2_n6imq"]
+[ext_resource type="Texture2D" uid="uid://ci4d741ynrtsp" path="res://graphics/Bg/Dream-Sequencer_logo.png" id="3_6y6l6"]
+[ext_resource type="Material" uid="uid://gscdrl6pjp14" path="res://graphics/Resources/DistortionEffect.tres" id="3_exv76"]
+[ext_resource type="Texture2D" uid="uid://cgn0ihiatsswb" path="res://graphics/Objects/circle.png" id="4_h75lt"]
+[ext_resource type="SpriteFrames" uid="uid://b0wqhqcotv1np" path="res://graphics/Resources/player.tres" id="5_br8tc"]
+[ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="6_7hrec"]
+[ext_resource type="Texture2D" uid="uid://dnp7seyimbgb" path="res://graphics/UI/grey_button01.png" id="7_xebm7"]
+[ext_resource type="Texture2D" uid="uid://y2fchhqroiye" path="res://graphics/UI/grey_button00.png" id="8_cpxuc"]
+[ext_resource type="Texture2D" uid="uid://048tn3u8qpg2" path="res://graphics/UI/grey_button15.png" id="9_dqlo6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4btd"]
+font = ExtResource("6_7hrec")
+font_size = 60
+font_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8t0vb"]
+font = ExtResource("6_7hrec")
+font_size = 60
+font_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="Animation" id="Animation_t4lbi"]
+resource_name = "Distortion"
+length = 32.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/Distortion:material:shader_parameter/distortionTexture:noise:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12, 16, 20, 24, 28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1000, 0, 0), Vector3(0, 0, 0), Vector3(1000, 0, 0), Vector3(0, 0, 0), Vector3(-1000, 0, 0), Vector3(0, 0, 0), Vector3(1000, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG/AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG/AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 4.5, 12, 12.1, 12.5, 20, 20.5, 27, 27.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(947, 593), Vector2(2078, 1240), Vector2(2147, -187), Vector2(-289, 634), Vector2(-325, -271), Vector2(1145, -350), Vector2(625, 1493), Vector2(1469, 1304), Vector2(481, -297), Vector2(-202, -156)]
+}
+
+[sub_resource type="Animation" id="Animation_asvfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/Distortion:material:shader_parameter/distortionTexture:noise:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1000, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1145, -271)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bivaq"]
+_data = {
+"Distortion": SubResource("Animation_t4lbi"),
+"RESET": SubResource("Animation_asvfh")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1do45")
 
-[node name="PlayBtn" type="Button" parent="."]
-offset_left = 433.0
-offset_top = 194.0
-offset_right = 650.0
-offset_bottom = 308.0
-text = "PLAY"
+[node name="BG" type="Node2D" parent="."]
 
-[node name="QuitBtn" type="Button" parent="."]
-offset_left = 433.0
-offset_top = 332.0
-offset_right = 650.0
-offset_bottom = 446.0
+[node name="DarkBg" type="Sprite2D" parent="BG"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(1056.91, 739.5)
+scale = Vector2(3.37671, 3.37671)
+texture = ExtResource("2_n6imq")
+metadata/_edit_lock_ = true
+
+[node name="Dream-sequencerLogo" type="Sprite2D" parent="BG"]
+position = Vector2(950, 307)
+scale = Vector2(1.52791, 1.52791)
+texture = ExtResource("3_6y6l6")
+
+[node name="Distortion" type="Sprite2D" parent="BG"]
+material = ExtResource("3_exv76")
+position = Vector2(1104.46, 661.434)
+scale = Vector2(3.17634, 2.89641)
+texture = ExtResource("4_h75lt")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG"]
+position = Vector2(1145, -271)
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("5_br8tc")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="BG/AnimatedSprite2D"]
+scale = Vector2(3.33333, 3.33333)
+color = Color(0.607843, 1, 1, 1)
+energy = 1.2
+shadow_enabled = true
+texture = ExtResource("4_h75lt")
+metadata/_edit_lock_ = true
+
+[node name="PlayBtn" type="TextureButton" parent="."]
+offset_left = 200.0
+offset_top = 505.0
+offset_right = 501.0
+offset_bottom = 635.0
+texture_normal = ExtResource("7_xebm7")
+texture_pressed = ExtResource("8_cpxuc")
+texture_hover = ExtResource("9_dqlo6")
+stretch_mode = 0
+
+[node name="PlayText" type="Label" parent="PlayBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = SubResource("LabelSettings_q4btd")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="QuitBtn" type="TextureButton" parent="."]
+offset_left = 201.0
+offset_top = 673.0
+offset_right = 501.0
+offset_bottom = 800.0
+texture_normal = ExtResource("7_xebm7")
+texture_pressed = ExtResource("8_cpxuc")
+texture_hover = ExtResource("9_dqlo6")
+stretch_mode = 0
+
+[node name="QuitText" type="Label" parent="QuitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "QUIT"
+label_settings = SubResource("LabelSettings_8t0vb")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bivaq")
+}
+autoplay = "Distortion"
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="QuitBtn" to="." method="_on_quit_btn_pressed"]
