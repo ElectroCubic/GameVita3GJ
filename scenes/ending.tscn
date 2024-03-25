@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j563pulpupk2"]
+[gd_scene load_steps=18 format=3 uid="uid://j563pulpupk2"]
 
 [ext_resource type="Script" path="res://scripts/ending.gd" id="1_cc310"]
 [ext_resource type="AudioStream" uid="uid://bygylr25prlcg" path="res://audio/SFX/rollover1.ogg" id="1_qnmqi"]
@@ -9,16 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://cgn0ihiatsswb" path="res://graphics/Objects/circle.png" id="4_wmmh8"]
 [ext_resource type="Texture2D" uid="uid://048tn3u8qpg2" path="res://graphics/UI/grey_button15.png" id="5_62vqt"]
 [ext_resource type="FontFile" uid="uid://bpdgbldnxmdp" path="res://graphics/Resources/Kenney Mini Square.ttf" id="6_y77fm"]
+[ext_resource type="AudioStream" uid="uid://cay8cr5leyrwm" path="res://audio/SFX/WinSound.wav" id="10_ur1au"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fug6n"]
 font = ExtResource("6_y77fm")
 font_size = 120
+font_color = Color(1, 0.196078, 0.145098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l4j6b"]
 font = ExtResource("6_y77fm")
 font_size = 75
+font_color = Color(0.478431, 0.643137, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0iqh2"]
+line_spacing = 2.0
 font = ExtResource("6_y77fm")
 font_size = 42
 font_color = Color(0.258824, 0.258824, 0.258824, 1)
@@ -111,6 +115,13 @@ metadata/_edit_lock_ = true
 stream = ExtResource("1_qnmqi")
 volume_db = 10.0
 
+[node name="WinSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10_ur1au")
+volume_db = -1.0
+pitch_scale = 0.75
+autoplay = true
+mix_target = 1
+
 [node name="RestartBtn" type="TextureButton" parent="."]
 offset_left = 587.0
 offset_top = 740.0
@@ -126,13 +137,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SLEEP AGAIN?"
+text = "BACK TO
+SLEEP?"
 label_settings = SubResource("LabelSettings_0iqh2")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="QuitBtn" type="TextureButton" parent="."]
 offset_left = 981.0

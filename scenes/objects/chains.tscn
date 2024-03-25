@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c65we37b575ef"]
+
+[ext_resource type="Texture2D" uid="uid://cay7crahn566f" path="res://graphics/Objects/chain.png" id="1_h6cv2"]
+
+[node name="Chains" type="Node2D"]
+
+[node name="Chain" type="Sprite2D" parent="."]
+position = Vector2(4, 9)
+texture = ExtResource("1_h6cv2")
+
+[node name="Chain2" type="Sprite2D" parent="."]
+position = Vector2(4, 137)
+texture = ExtResource("1_h6cv2")
+
+[node name="Chain3" type="Sprite2D" parent="."]
+position = Vector2(4, -119)
+texture = ExtResource("1_h6cv2")

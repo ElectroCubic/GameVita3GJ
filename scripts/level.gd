@@ -27,6 +27,7 @@ func _on_player_collided(collision):
 func _on_ui_restart_pressed():
 	Globals.is_game_over = false
 	$UI/GameOverScreen.visible = false
+	$UI/RetryBtn.visible = true
 	Globals.health = 5
 	TransitionLayer.change_scene(Globals.selectRandomLevelFromSet1())
 	
@@ -35,6 +36,7 @@ func _on_player_player_died():
 		Globals.is_game_over = true
 		$Audio/GameOverSound.play()
 		$UI/GameOverScreen.visible = true
+		$UI/RetryBtn.visible = false
 	else:
 		restartLevel()
 		

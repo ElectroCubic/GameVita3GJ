@@ -1,18 +1,29 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://gscdrl6pjp14"]
 
-[ext_resource type="Shader" path="res://shaders/distortion.gdshader" id="1_55uip"]
+[sub_resource type="Shader" id="Shader_hkllf"]
+code = "shader_type canvas_item;
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2d1pd"]
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform sampler2D distortionTexture;
+
+void fragment() {
+	vec2 distortedUV = SCREEN_UV + texture(distortionTexture, UV).r * 0.05;
+	vec4 screenColor = texture(SCREEN_TEXTURE, distortedUV);
+	COLOR = screenColor;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_om0lf"]
 noise_type = 4
 seed = 3
 frequency = 0.0054
 offset = Vector3(-1000, 0, 0)
 fractal_gain = 0.3
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vx4kh"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d5g1a"]
 seamless = true
-noise = SubResource("FastNoiseLite_2d1pd")
+noise = SubResource("FastNoiseLite_om0lf")
 
 [resource]
-shader = ExtResource("1_55uip")
-shader_parameter/distortionTexture = SubResource("NoiseTexture2D_vx4kh")
+shader = SubResource("Shader_hkllf")
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_d5g1a")

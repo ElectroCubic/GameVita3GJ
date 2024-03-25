@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv7xkckdjm1wa"]
+[gd_scene load_steps=6 format=3 uid="uid://bv7xkckdjm1wa"]
 
 [ext_resource type="Script" path="res://scripts/blue_door.gd" id="1_8rc7y"]
 [ext_resource type="Texture2D" uid="uid://bi4hpg5prdxu6" path="res://graphics/Objects/BlueTop.png" id="1_id558"]
 [ext_resource type="Texture2D" uid="uid://dpmlfibrtu1bv" path="res://graphics/Objects/BlueMid.png" id="2_8mih0"]
+[ext_resource type="AudioStream" uid="uid://bmtt17c7j7ylx" path="res://audio/SFX/TeleportSound.wav" id="4_yq62i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1762"]
 size = Vector2(72, 146)
@@ -25,6 +26,12 @@ texture = ExtResource("2_8mih0")
 shape = SubResource("RectangleShape2D_v1762")
 
 [node name="WaitTimer" type="Timer" parent="."]
+
+[node name="TeleportSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yq62i")
+volume_db = 8.0
+pitch_scale = 0.8
+panning_strength = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

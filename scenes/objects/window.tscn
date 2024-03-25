@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nola2gmmenrb"]
+
+[ext_resource type="Texture2D" uid="uid://dvk3xt45a86c8" path="res://graphics/Objects/window.png" id="1_85qqj"]
+
+[node name="Window" type="Sprite2D"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+texture = ExtResource("1_85qqj")

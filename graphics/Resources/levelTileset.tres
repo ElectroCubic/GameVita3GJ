@@ -340,6 +340,7 @@ polygon = PackedVector2Array(-23.3345, -1.06066, -11.75, 35, 0, -0.75, 11.75, 35
 texture = ExtResource("2_re22p")
 texture_region_size = Vector2i(70, 70)
 0:0/0 = 0
+0:0/0/modulate = Color(0.741176, 0.741176, 0.741176, 1)
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_n6qmh")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0

@@ -20,3 +20,8 @@ func _on_quit_btn_pressed():
 	$ClickSound.play()
 	await $ClickSound.finished
 	get_tree().quit()
+
+func _on_retry_btn_pressed():
+	$ClickSound.play()
+	await $ClickSound.finished
+	get_tree().reload_current_scene()

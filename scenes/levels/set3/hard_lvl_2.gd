@@ -9,3 +9,7 @@ func _on_red_door_player_touched():
 
 func _on_blue_door_player_touched():
 	$Player.position = $Objects/RedDoor.position
+
+func _ready():
+	var tween = create_tween()
+	tween.tween_property($Background/Text, "modulate:a",0,5)

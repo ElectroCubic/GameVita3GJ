@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dswej56xp8olg"]
+
+[ext_resource type="Shader" path="res://shaders/distortion.gdshader" id="1_jlkvr"]
+[ext_resource type="Texture2D" uid="uid://cgn0ihiatsswb" path="res://graphics/Objects/circle.png" id="2_7hrbd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_asind"]
+seed = 2
+frequency = 0.0023
+fractal_gain = 0.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cw1iv"]
+seamless = true
+noise = SubResource("FastNoiseLite_asind")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07f8r"]
+shader = ExtResource("1_jlkvr")
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_cw1iv")
+
+[node name="DistortionSet1" type="Sprite2D"]
+material = SubResource("ShaderMaterial_07f8r")
+position = Vector2(1054, 491)
+scale = Vector2(3.67625, 3.67625)
+texture = ExtResource("2_7hrbd")

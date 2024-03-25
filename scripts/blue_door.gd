@@ -11,4 +11,6 @@ func _on_body_exited(body):
 		$WaitTimer.stop()
 	
 func _on_wait_timer_timeout():
+	if not $TeleportSound.playing:
+		$TeleportSound.play()
 	playerTouched.emit()
